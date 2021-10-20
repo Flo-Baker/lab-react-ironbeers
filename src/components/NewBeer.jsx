@@ -33,7 +33,7 @@ export default class NewBeer extends Component {
     render() {
         return (
             <div>
-            <Link to="/"> <h1>Home</h1> </Link>
+            <Link to="/"> <h1>PUB</h1> </Link>
                 <h1>Add Beer Form</h1>
 
                 <form onSubmit = {this.handleSubmit}>

@@ -8,7 +8,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <h1>Home</h1>
+                <h1>PUB</h1>
                 <Link to="/beers">
                     <img src={beersImg} alt="beers"/>
                     <h1>Beers!</h1>

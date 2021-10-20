@@ -25,9 +25,10 @@ class AllBeers extends Component {
     return (
       <div>
         <Link to="/">
-          <h1>Home</h1>
+          <h1>PUB</h1>
         </Link>
-        <h1>All Beers!</h1>
+        <h2>Welcome to our bar</h2>
+        <h3>Here are all our Beers!</h3>
 
         {this.state.isLoading && <h1>...Loading</h1>}
 
@@ -35,7 +36,7 @@ class AllBeers extends Component {
           this.state.listOfBeers.map((oneBeer) => {
             return (
               <div>
-                <Card border="primary" style={{ width: '18rem' }}>
+                <Card border="dark" style={{ width: '18rem' }}>
                 <Card.Body>
                 <Link to={`beers/${oneBeer._id}`}>
                   <Card.Img variant="top" src={oneBeer.image_url} height="500px"/>

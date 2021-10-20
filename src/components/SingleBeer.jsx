@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default class SingleBeer extends Component {
   state = {
     singleBeer: null,
-    isLoading: true,
+    isLoading: true
   };
 
   componentDidMount() {
@@ -23,9 +24,12 @@ export default class SingleBeer extends Component {
   render() {
     return (
       <div>
-        <h1>Single Beer</h1>
+       <Link to="/">
+          <h1>PUB</h1>
+        </Link>
+        <h2>Single Beer</h2>
 
-        {this.state.isLoading && <h2>...Loading</h2>}
+        {this.state.isLoading && <h3>...Loading</h3>}
 
         {!this.state.isLoading && (
           <Card border="dark" style={{ width: '18rem' }}>
@@ -56,4 +60,4 @@ export default class SingleBeer extends Component {
 
 // see AllBeers Component => calling the API via axios, updating the state, displaying information
 
-// params when accessing ifo from the URL
+// params when accessing info from the URL
