@@ -8,7 +8,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <h1>PUB</h1>
+                <h1>WELCOME TO THE IRONPUB</h1>
                 <Link to="/beers">
                     <img src={beersImg} alt="beers"/>
                     <h1>Beers!</h1>
@@ -30,8 +30,13 @@ class Home extends Component {
 }
 
 export default Home
+
 // class component because of changing states
 
 // look for assets folder when its about img
 // import the elements as src files (all for better performance)
 // see the spinning logo from react
+
+// ------
+
+// maybe a button instead of the <p>

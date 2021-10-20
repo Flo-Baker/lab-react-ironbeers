@@ -36,6 +36,9 @@ class AllBeers extends Component {
           this.state.listOfBeers.map((oneBeer) => {
             return (
               <div>
+              <Link to="/new-beer">
+                    <p>Add Your Favorite!</p>
+                </Link>
                 <Card border="dark" style={{ width: '18rem' }}>
                 <Card.Body>
                 <Link to={`beers/${oneBeer._id}`}>
@@ -50,7 +53,6 @@ class AllBeers extends Component {
                     </Card.Text>
                   </Card.Body>
                 </Card>
-
                 {/* <Link to={`beers/${oneBeer._id}`}>
                   <img src={oneBeer.image_url} alt="" height="200px" />
                   <h3>{oneBeer.name}</h3>
@@ -81,3 +83,8 @@ export default AllBeers;
 // map => for rendering data from API
 
 // isLoading in the state is fixing the error before executing the map
+
+
+// -------
+
+// maybe a Link to Add Beer if favorite is not available

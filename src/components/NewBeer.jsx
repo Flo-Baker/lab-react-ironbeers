@@ -6,7 +6,11 @@ export default class NewBeer extends Component {
 
     state = {
         name: "",
+        tagline: "",
         description: "",
+        firstBrewed: "",
+        brewersTips: "",
+        attenuationLevel: "",
         contributedBy: ""
     }
 
@@ -20,7 +24,11 @@ export default class NewBeer extends Component {
     
         axios.post("https://ih-beers-api2.herokuapp.com/beers/new", {
             name: this.state.name,
+            tagline: this.state.tagline,
             description: this.state.description,
+            first_brewed: this.state.firstBrewed,
+            brewers_tips: this.state.brewersTips,
+            attenuation_level: this.state.attenuationLevel,
             contributed_by: this.state.contributedBy
         })
         .then( () => {
@@ -39,15 +47,32 @@ export default class NewBeer extends Component {
                 <form onSubmit = {this.handleSubmit}>
 
                 <label htmlFor="name">name</label>
-                <input onChange={this.handleChange} type="text" name="name" value={this.state.name}/>
-
+                <input onChange={this.handleChange} type="text" name="name" value={this.state.name} placeholder="name of beer"/>
+                <br />
+                <label htmlFor="tagline">tagline</label>
+                <input onChange={this.handleChange} type="text" name="tagline" value={this.state.tagline}/>
+                <br />
                 <label htmlFor="description">description</label>
                 <input onChange={this.handleChange} type="text" name="description" value={this.state.description}/>
+                <br />
+
+                <label htmlFor="firstBrewed">firstBrewed</label>
+                <input onChange={this.handleChange} type="text" name="firstBrewed" value={this.state.firstBrewed}/>
+                <br />
+
+                <label htmlFor="brewersTips">brewersTips</label>
+                <input onChange={this.handleChange} type="text" name="brewersTips" value={this.state.brewersTips}/>
+                <br />
+
+                <label htmlFor="attenuationLevel">attenuationLevel</label>
+                <input onChange={this.handleChange} type="number" name="attenuationLevel" value={this.state.attenuationLevel}/>
+                <br />
 
                 <label htmlFor="contributedBy">contributedBy</label>
                 <input onChange={this.handleChange} type="text" name="contributedBy" value={this.state.contributedBy}/>
+                <br />
 
-                <button type="submit">Cheers!</button>
+                <button type="submit">Cheers! </button>
 
                 </form>
 
