@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import Header from './Header';
+import { Spinner } from 'react-bootstrap';
 
 export default class SingleBeer extends Component {
   state = {
@@ -24,12 +26,9 @@ export default class SingleBeer extends Component {
   render() {
     return (
       <div>
-       <Link to="/">
-          <h1>PUB</h1>
-        </Link>
-        <h2>Single Beer</h2>
+      <Header/>
 
-        {this.state.isLoading && <h3>...Loading</h3>}
+        {this.state.isLoading && <Spinner animation="grow" />}
 
         {!this.state.isLoading && (
           <Card border="dark" style={{ width: '18rem' }}>

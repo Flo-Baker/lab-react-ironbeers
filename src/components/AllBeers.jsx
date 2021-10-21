@@ -2,6 +2,16 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
+import Header from './Header';
+import Spinner from 'react-bootstrap/Spinner'
+
+const allBeersCard ={
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+  textAlign: "center",
+  textDecoration: "none"
+}
 
 class AllBeers extends Component {
   state = {
@@ -24,42 +34,35 @@ class AllBeers extends Component {
   render() {
     return (
       <div>
-        <Link to="/">
-          <h1>PUB</h1>
+      <Header/>    
+        <h1>See all of our IronBeers</h1>
+        <Link to="/new-beer">
+        <p>Add Your Favorite!</p>
         </Link>
-        <h2>Welcome to our bar</h2>
-        <h3>Here are all our Beers!</h3>
-
-        {this.state.isLoading && <h1>...Loading</h1>}
+        {this.state.isLoading && <Spinner animation="grow" />}
 
         {!this.state.isLoading &&
           this.state.listOfBeers.map((oneBeer) => {
             return (
-              <div>
-              <Link to="/new-beer">
-                    <p>Add Your Favorite!</p>
-                </Link>
-                <Card border="dark" style={{ width: '18rem' }}>
-                <Card.Body>
+              <div style={allBeersCard}>                                   
+                <Card border="dark" style={{ width: '20rem' }}>
+                    <Card.Body>
+                <div>
                 <Link to={`beers/${oneBeer._id}`}>
-                  <Card.Img variant="top" src={oneBeer.image_url} height="500px"/>
+                  <Card.Img variant="bottom" src={oneBeer.image_url} height="500px"/>
                   
                     <Card.Title>{oneBeer.name}</Card.Title>
                     </Link>
+                    </div>
+                    <div>
                     <Card.Text>
                     {oneBeer.tagline}
                     <br />
-                    Created by: {oneBeer.contributed_by}
+                    <b>Created by:</b> {oneBeer.contributed_by}
                     </Card.Text>
+                    </div>
                   </Card.Body>
                 </Card>
-                {/* <Link to={`beers/${oneBeer._id}`}>
-                  <img src={oneBeer.image_url} alt="" height="200px" />
-                  <h3>{oneBeer.name}</h3>
-                </Link>
-                <h3>{oneBeer.tagline}</h3>
-                <p>Created by: {oneBeer.contributed_by}</p> */}
-                {/* <hr/> */}
               </div>
             );
           })}
@@ -87,4 +90,16 @@ export default AllBeers;
 
 // -------
 
+// to be added: search fct to look for the favorite beer
+
 // maybe a Link to Add Beer if favorite is not available
+
+// -------
+
+                {/* <Link to={`beers/${oneBeer._id}`}>
+                  <img src={oneBeer.image_url} alt="" height="200px" />
+                  <h3>{oneBeer.name}</h3>
+                </Link>
+                <h3>{oneBeer.tagline}</h3>
+                <p>Created by: {oneBeer.contributed_by}</p> */}
+                {/* <hr/> */}

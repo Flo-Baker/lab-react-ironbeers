@@ -8,7 +8,11 @@ import SingleBeer from './components/SingleBeer';
 import RandomBeer from './components/RandomBeer';
 
 function App() {
+
+// const isBgGrey = true;
+
   return (
+    // <div className={isBgGrey ? "bg-grey" : "bg-blue"}>
     <div className="App">
       <Switch>
         <Route path="/" exact component={Home} />

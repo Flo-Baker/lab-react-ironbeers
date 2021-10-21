@@ -1,7 +1,13 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import Header from './Header';
+import { Spinner } from 'react-bootstrap';
+
+const randomBeerCard = {
+  display: "flex",
+  justifyContent: "center",
+}
 
 export default class RandomBeer extends Component {
   
@@ -23,16 +29,15 @@ export default class RandomBeer extends Component {
     render() {
     return (
       <div>
-        <Link to="/">
-          <h1>PUB</h1>
-        </Link>
-        <h2>Try your random beer!</h2>
+        <Header/>
+        
+        <h2 className="h2centered">Try your random beer!</h2>
 
-        {this.state.isLoading && <h3>...Loading</h3>}
+        {this.state.isLoading && <Spinner animation="grow" />}
 
         {!this.state.isLoading && (
-
-        <Card border="succes 2px" style={{ width: '18rem' }}>
+          <div style={randomBeerCard}>
+        <Card border="dark" style={{ width: '18rem' }}>
         <Card.Img
               variant="top"
               img
@@ -41,9 +46,6 @@ export default class RandomBeer extends Component {
               width="300"
               height="500px"
             />
-            <Card.Title>
-            {this.state.randomBeer.name}
-            </Card.Title>
             <Card.Body>
               <Card.Title>{this.state.randomBeer.name}</Card.Title>
               <Card.Text>
@@ -55,6 +57,7 @@ export default class RandomBeer extends Component {
               </Card.Text>
             </Card.Body>
           </Card>
+          </div>
         )
         }
 

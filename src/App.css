@@ -1,6 +1,42 @@
 .App {
   text-align: center;
+  /* background-color: darkgrey; didnt work*/
 }
+
+h2 {
+  text-decoration: none;
+  color: #000000;
+  text-align: left;
+}
+
+.h2centered {
+  text-align: center;
+}
+
+h5 {
+  text-decoration: none;
+  color: #000000;
+} 
+
+p {
+  text-decoration: none;
+  color: rgb(135, 135, 135);
+  text-align: left;
+}
+
+/* conditional inline styles 
+https://upmostly.com/tutorials/changing-the-background-color-in-react
+didnt work either
+
+
+.bg-grey {
+  background-color: darkgrey;
+}
+
+.bg-blue {
+  background-color: dodgerblue;
+}
+*/
 
 .App-logo {
   height: 40vmin;
