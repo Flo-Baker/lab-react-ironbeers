@@ -3,15 +3,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Header from './Header';
-import Spinner from 'react-bootstrap/Spinner'
+import Spinner from 'react-bootstrap/Spinner';
 
-const allBeersCard ={
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "center",
-  textAlign: "center",
-  textDecoration: "none"
-}
+const allBeersCard = {
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  textDecoration: 'none',
+};
 
 class AllBeers extends Component {
   state = {
@@ -34,33 +33,32 @@ class AllBeers extends Component {
   render() {
     return (
       <div>
-      <Header/>    
+        <Header />
         <h1>See all of our IronBeers</h1>
-        <Link to="/new-beer">
+        {/* <Link to="/new-beer">
         <p>Add Your Favorite!</p>
-        </Link>
+        </Link> */}
         {this.state.isLoading && <Spinner animation="grow" />}
 
         {!this.state.isLoading &&
           this.state.listOfBeers.map((oneBeer) => {
             return (
-              <div style={allBeersCard}>                                   
+              <div style={allBeersCard}>
                 <Card border="dark" style={{ width: '20rem' }}>
-                    <Card.Body>
-                <div>
-                <Link to={`beers/${oneBeer._id}`}>
-                  <Card.Img variant="bottom" src={oneBeer.image_url} height="500px"/>
-                  
-                    <Card.Title>{oneBeer.name}</Card.Title>
+                  <Card.Body>
+                    <Link to={`beers/${oneBeer._id}`}>
+                      <Card.Img
+                        variant="bottom"
+                        src={oneBeer.image_url}
+                        height="500px"
+                      />
                     </Link>
-                    </div>
-                    <div>
+                    <Card.Title>{oneBeer.name}</Card.Title>
                     <Card.Text>
-                    {oneBeer.tagline}
-                    <br />
-                    <b>Created by:</b> {oneBeer.contributed_by}
+                      {oneBeer.tagline}
+                      <br />
+                      <b>Created by:</b> {oneBeer.contributed_by}
                     </Card.Text>
-                    </div>
                   </Card.Body>
                 </Card>
               </div>
@@ -87,7 +85,6 @@ export default AllBeers;
 
 // isLoading in the state is fixing the error before executing the map
 
-
 // -------
 
 // to be added: search fct to look for the favorite beer
@@ -96,10 +93,14 @@ export default AllBeers;
 
 // -------
 
-                {/* <Link to={`beers/${oneBeer._id}`}>
+{
+  /* <Link to={`beers/${oneBeer._id}`}>
                   <img src={oneBeer.image_url} alt="" height="200px" />
                   <h3>{oneBeer.name}</h3>
                 </Link>
                 <h3>{oneBeer.tagline}</h3>
-                <p>Created by: {oneBeer.contributed_by}</p> */}
-                {/* <hr/> */}
+                <p>Created by: {oneBeer.contributed_by}</p> */
+}
+{
+  /* <hr/> */
+}

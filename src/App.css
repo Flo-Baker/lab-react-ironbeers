@@ -9,6 +9,10 @@ h2 {
   text-align: left;
 }
 
+/* .home {
+  text-decoration: none;
+} */
+
 .h2centered {
   text-align: center;
 }
@@ -19,9 +23,9 @@ h5 {
 } 
 
 p {
-  text-decoration: none;
   color: rgb(135, 135, 135);
   text-align: left;
+  font-size: 25px;
 }
 
 /* conditional inline styles 

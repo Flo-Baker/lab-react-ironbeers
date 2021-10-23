@@ -30,8 +30,6 @@ class Home extends Component {
           </Card.Body>
         </Card>
 
-        {/* -- */}
-
         <Card border="light">
           <Card.Body>
             <Link to="/random-beer" style={home}>
@@ -46,8 +44,6 @@ class Home extends Component {
             </Link>
           </Card.Body>
         </Card>
-
-        {/* {--} */}
 
         <Card border="light">
           <Card.Body>
@@ -75,7 +71,7 @@ export default Home;
 
 // ------
 
-// maybe a button instead of the <p>
+// makes it sense to have the card as seperated component and import it to home?
 
 // ------
 

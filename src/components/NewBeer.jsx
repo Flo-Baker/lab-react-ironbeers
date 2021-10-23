@@ -1,9 +1,17 @@
+import { TextField } from '@mui/material';
 import axios from 'axios';
 import React, { Component } from 'react';
-import { Col, Form, Row } from 'react-bootstrap';
 // import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
 import Header from './Header';
-// import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+
+// https://mui.com/components/text-fields
+// https://mui.com/components/buttons
+
+const form ={
+  margin:"30px 0 20px 0"
+}
 
 export default class NewBeer extends Component {
   state = {
@@ -47,18 +55,108 @@ export default class NewBeer extends Component {
         <Header />
         <h2 className="h2centered">Add Your Favorite Beer!</h2>
 
-        <Row>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Label column lg={2}>
-            Name
-          </Form.Label>
-          <Col>
-            <Form.Control onChange={this.handleChange} type="text" name="name" value={this.state.name} placeholder="Name" />
-          </Col>
-          </Form>
-        </Row>
-{/* stuck at the form */}
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} style={form}>
+          <Box
+            // component="form"
+            sx={{
+              '& > :not(style)': { m: 1, width: '40ch' },
+            }}
+            noValidate
+          >
+            <TextField
+              onChange={this.handleChange}
+              id="outlined-textarea"
+              label="name"
+              type="text"
+              name="name"
+              value={this.state.name}
+              placeholder="name of beer"
+              variant="outlined"
+              autoComplete="off"
+            />
+            <br />
+            <TextField
+              onChange={this.handleChange}
+              id="outlined-textarea"
+              label="Tagline"
+              type="text"
+              name="tagline"
+              placeholder="Your statement!"
+              value={this.state.tagline}
+              autoComplete="off"
+            />
+            <br />
+            <TextField
+              onChange={this.handleChange}
+              id="outlined-multiline-flexible"
+              label="Description"
+              multiline
+              maxRows={3}
+              type="text"
+              name="description"
+              placeholder="Describe the unique taste!"
+              value={this.state.description}
+              autoComplete="off"
+            />
+            <br />
+            <TextField
+              onChange={this.handleChange}
+              id="outlined-textarea"
+              label="First Brewed"
+              type="text"
+              name="firstBrewed"
+              placeholder="When was it first brewed?"
+              value={this.state.firstBrewed}
+              autoComplete="off"
+            />
+            <br />
+            <TextField
+              onChange={this.handleChange}
+              id="outlined-textarea"
+              label="Brewers Tips"
+              type="text"
+              name="brewersTips"
+              placeholder="Brewers Tips!"
+              value={this.state.brewersTips}
+              autoComplete="off"
+            />
+            <br />
+            <TextField
+              onChange={this.handleChange}
+              id="outlined-textarea"
+              label="Attenuation Level"
+              type="number"
+              name="attenuationLevel"
+              placeholder="Attenuation Level"
+              value={this.state.attenuationLevel}
+              autoComplete="off"
+            />
+            <br />
+            <TextField
+              onChange={this.handleChange}
+              id="outlined-textarea"
+              label="Contributed by"
+              type="text"
+              name="contributedBy"
+              placeholder="Tell us your brewer name!"
+              value={this.state.contributedBy}
+              autoComplete="off"
+            />
+            <br />
+          </Box>
+          <Button type="submit" variant="contained">
+            Cheers!{' '}
+          </Button>
+        </form>
+      </div>
+    );
+  }
+}
+
+// creating a ctrl component => form, input fields managed through the state
+
+{
+  /* <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">name</label>
           <input
             onChange={this.handleChange}
@@ -119,13 +217,12 @@ export default class NewBeer extends Component {
             name="contributedBy"
             value={this.state.contributedBy}
           />
-          <br />
-
-          <button type="submit">Cheers! </button>
-        </form>
-      </div>
-    );
-  }
+          <br /> */
 }
 
-// creating a ctrl component => form, input fields managed through the state
+{
+  /* <button type="submit">Cheers! </button> */
+}
+{
+  /* </form> */
+}

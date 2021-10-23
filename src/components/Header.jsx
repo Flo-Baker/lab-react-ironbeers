@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import headBeerImg from "../assets/head-beer.png"
 
 const headStyle = {
-    display: "block"
+    display: "block",
 }
 
 export default function Header() {
