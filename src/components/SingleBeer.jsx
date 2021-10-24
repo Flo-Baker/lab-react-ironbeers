@@ -5,10 +5,21 @@ import { Card } from 'react-bootstrap';
 import Header from './Header';
 import { Spinner } from 'react-bootstrap';
 
+const singleBeer = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
+
+const singleBeerInfo = {
+  display: 'flex',
+  justifyContent: 'center',
+};
+
 export default class SingleBeer extends Component {
   state = {
     singleBeer: null,
-    isLoading: true
+    isLoading: true,
   };
 
   componentDidMount() {
@@ -26,32 +37,36 @@ export default class SingleBeer extends Component {
   render() {
     return (
       <div>
-      <Header/>
+        <Header />
+        <div style={singleBeer}>
+          {this.state.isLoading && <Spinner animation="grow" />}
 
-        {this.state.isLoading && <Spinner animation="grow" />}
-
-        {!this.state.isLoading && (
-          <Card border="dark" style={{ width: '18rem' }}>
-            <Card.Img
-              variant="top"
-              img
-              src={this.state.singleBeer.image_url}
-              alt={`Beer: ${this.state.singleBeer.name}`}
-              width="300"
-              height="500px"
-            />
-            <Card.Body>
-              <Card.Title>{this.state.singleBeer.name}</Card.Title>
-              <Card.Text>
-                <p>{this.state.singleBeer.tagline}</p>
-                <p>{this.state.singleBeer.first_brewed}</p>
-                <p>{this.state.singleBeer.attenuation_level}</p>
-                <p>{this.state.singleBeer.description}</p>
-                <p>contributed by: {this.state.singleBeer.contributed_by}</p>
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        )}
+          {!this.state.isLoading && (
+            <Card border="dark" style={{ width: '20rem' }}>
+              <Card.Img
+                variant="top"
+                img
+                src={this.state.singleBeer.image_url}
+                alt={`Beer: ${this.state.singleBeer.name}`}
+                height="400px"
+              />
+              <Card.Body>
+                <h3>{this.state.singleBeer.name}</h3>
+                <Card.Text>
+                  <h4>{this.state.singleBeer.tagline}</h4>
+                  <div style={singleBeerInfo}>
+                    <p>
+                      {this.state.singleBeer.first_brewed} |{' '}
+                      <b> {this.state.singleBeer.attenuation_level}</b>
+                    </p>
+                  </div>
+                  <p>{this.state.singleBeer.description}</p>
+                  <p><b>contributed by:</b> {this.state.singleBeer.contributed_by}</p>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          )}
+        </div>
       </div>
     );
   }

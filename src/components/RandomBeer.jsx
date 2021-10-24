@@ -50,10 +50,10 @@ export default class RandomBeer extends Component {
               <Card.Title>{this.state.randomBeer.name}</Card.Title>
               <Card.Text>
                 <p>{this.state.randomBeer.tagline}</p>
-                <p>{this.state.randomBeer.first_brewed}</p>
-                <p>{this.state.randomBeer.attenuation_level}</p>
+                <p>{this.state.randomBeer.first_brewed} | <b>{this.state.randomBeer.attenuation_level}</b></p>
+                
                 <p> {this.state.randomBeer.description}</p>
-                <p> contributed by: {this.state.randomBeer.contributed_by}</p>
+                <p><b> contributed by:</b> {this.state.randomBeer.contributed_by}</p>
               </Card.Text>
             </Card.Body>
           </Card>
